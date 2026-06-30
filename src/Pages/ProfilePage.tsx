@@ -2,7 +2,15 @@ import { asset } from '../backend/data'
 import type { GoToPage, Page } from './types'
 import type { SessionUser } from '../backend/auth'
 
-export function ProfilePage({ go, user }: { go: GoToPage; user?: SessionUser | null }) {
+export function ProfilePage({
+  go,
+  user,
+  onLogout,
+}: {
+  go: GoToPage
+  user?: SessionUser | null
+  onLogout: () => void
+}) {
   const rows: Array<{
     title: string
     subtitle: string
@@ -89,6 +97,9 @@ export function ProfilePage({ go, user }: { go: GoToPage; user?: SessionUser | n
           </button>
         ))}
       </div>
+      <button className="profile-logout-btn" onClick={onLogout}>
+        Đăng xuất
+      </button>
     </main>
   )
 }

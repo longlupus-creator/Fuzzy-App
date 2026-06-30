@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { fuzzyApi } from '../backend/api'
-import { readSession, type SessionUser } from '../backend/auth'
+import { clearSession, readSession, type SessionUser } from '../backend/auth'
 import { coupons, products, type Product } from '../backend/data'
 import {
   CartPage,
@@ -177,6 +177,13 @@ function FuzzyApp() {
 
     setSideMenuOpen(false)
     window.location.hash = id ? `/${page}?id=${id}` : `/${page}`
+  }
+
+  const logout = () => {
+    clearSession()
+    setSessionUser(null)
+    setSideMenuOpen(false)
+    window.location.hash = '/login'
   }
 
   useEffect(() => {
@@ -427,7 +434,7 @@ function FuzzyApp() {
           />
         )
       case 'profile':
-        return <ProfilePage go={go} user={currentUser} />
+        return <ProfilePage go={go} user={currentUser} onLogout={logout} />
       case 'settings':
         return route.rawRoute === 'profile-setting' ? (
           <ProfileSettingPage go={go} user={currentUser} onUserChange={setSessionUser} />
@@ -489,6 +496,9 @@ function FuzzyApp() {
                 </button>
               ))}
             </nav>
+            <button className="side-menu-logout" onClick={logout}>
+              Đăng xuất
+            </button>
           </aside>
         </section>
       )}

@@ -1343,6 +1343,17 @@ button {
   font-size: 13px;
 }
 
+.profile-logout-btn {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 18px;
+  border: 1px solid #f1c7c7;
+  border-radius: 8px;
+  color: #bd4747;
+  background: #fff5f5;
+  font-weight: 800;
+}
+
 .menu-list button {
   width: 100%;
   color: var(--ink);
@@ -2171,6 +2182,17 @@ button {
   filter: brightness(0) invert(1);
 }
 
+.side-menu-logout {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 16px;
+  border: 1px solid #f1c7c7;
+  border-radius: 8px;
+  color: #bd4747;
+  background: #fff5f5;
+  font-weight: 800;
+}
+
 .theme-dark {
   --ink: #eef5f8;
   --muted: #9fb0ba;
@@ -2353,6 +2375,13 @@ button {
 
 .theme-dark .profile-menu-copy strong {
   color: #ffffff;
+}
+
+.theme-dark .profile-logout-btn,
+.theme-dark .side-menu-logout {
+  border-color: rgba(189, 71, 71, 0.55);
+  color: #ffd7d7;
+  background: #40252a;
 }
 
 .theme-dark .tracking-screen {
