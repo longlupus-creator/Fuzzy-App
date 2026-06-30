@@ -2411,6 +2411,85 @@ button {
   background: #ffffff;
 }
 
+.theme-dark .admin-screen {
+  background:
+    linear-gradient(#0d1c26, #0d1c26) padding-box,
+    linear-gradient(180deg, #213847, #0d1c26 28%, #213847) border-box;
+}
+
+.theme-dark .admin-section {
+  border-color: #2a4657;
+  background: #10232e;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.theme-dark .admin-order-card,
+.theme-dark .admin-product-card,
+.theme-dark .admin-user-card {
+  border-color: #2d4a5c;
+  background: #142b38;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+}
+
+.theme-dark .admin-product-card {
+  border-left-color: var(--gold);
+}
+
+.theme-dark .admin-user-card {
+  border-left-color: #4f8f67;
+}
+
+.theme-dark .admin-product-card p,
+.theme-dark .admin-user-card p,
+.theme-dark .admin-user-main small,
+.theme-dark .admin-section-head small,
+.theme-dark .admin-metrics small,
+.theme-dark .admin-user-stats span {
+  color: #b8c9d3;
+}
+
+.theme-dark .admin-card-meta span {
+  border-color: #38576a;
+  color: #ffffff;
+  background: #203846;
+}
+
+.theme-dark .admin-card-meta .live-badge,
+.theme-dark .status-badge.active {
+  border-color: rgba(86, 176, 111, 0.45);
+  color: #dff9e7;
+  background: #1f4a33;
+}
+
+.theme-dark .admin-card-meta .muted-badge,
+.theme-dark .status-badge.inactive {
+  border-color: rgba(189, 115, 80, 0.5);
+  color: #ffe2d4;
+  background: #5a2f24;
+}
+
+.theme-dark .admin-user-stats strong {
+  color: #ffffff;
+}
+
+.theme-dark .inline-actions button {
+  border-color: #3a5668;
+  color: #ffffff;
+  background: #203846;
+}
+
+.theme-dark .inline-actions button:hover,
+.theme-dark .inline-actions button:focus-visible {
+  border-color: var(--gold);
+  background: #263f4e;
+}
+
+.theme-dark .admin-user-card .inline-actions button:last-child {
+  border-color: rgba(189, 71, 71, 0.45);
+  color: #ffd7d7;
+  background: #40252a;
+}
+
 .theme-dark .primary-btn,
 .theme-dark .admin-add-btn,
 .theme-dark .admin-section-head b {
