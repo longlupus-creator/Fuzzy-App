@@ -50,9 +50,12 @@ button {
 
 .brand-logo {
   display: block;
+  position: relative;
+  z-index: 2;
   width: 210px;
   height: auto;
-  margin: 26px auto 0;
+  margin: 24px auto 0;
+  animation: intro-drop 0.7s ease both;
 }
 
 .hero-stage {
@@ -60,46 +63,84 @@ button {
   display: grid;
   place-items: center;
   min-height: 500px;
+  margin-top: -8px;
   overflow: hidden;
 }
 
 .orbit {
   position: absolute;
-  width: 90%;
-  opacity: 0.55;
+  width: min(92%, 390px);
+  opacity: 0.34;
+  animation: intro-spin 18s linear infinite;
+}
+
+.orbit-ring {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 999px;
+}
+
+.orbit-ring-one {
+  width: 390px;
+  height: 390px;
+  animation: intro-pulse 3.8s ease-in-out infinite;
+}
+
+.orbit-ring-two {
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.025);
+  animation: intro-pulse 3.8s ease-in-out infinite 0.7s;
 }
 
 .hero-product {
   position: relative;
   z-index: 1;
-  max-width: 88%;
-  max-height: 350px;
+  max-width: 72%;
+  max-height: 300px;
   object-fit: contain;
+  filter: drop-shadow(0 28px 34px rgba(0, 0, 0, 0.32));
+  animation: product-rise 0.72s ease both, product-float 3.4s ease-in-out infinite 0.72s;
 }
 
 .floating {
   position: absolute;
   z-index: 0;
-  width: 64px;
+  width: 54px;
   opacity: 0.7;
+  filter: blur(0.1px) drop-shadow(0 8px 12px rgba(255, 255, 255, 0.12));
 }
 
 .floating-one {
-  left: 48px;
-  top: 170px;
+  left: 58px;
+  top: 126px;
+  animation: float-dot-one 4.8s ease-in-out infinite;
 }
 
 .floating-two {
-  right: 28px;
-  top: 250px;
+  right: 40px;
+  top: 258px;
+  width: 26px;
+  animation: float-dot-two 5.4s ease-in-out infinite 0.25s;
+}
+
+.floating-three {
+  left: 60px;
+  bottom: 76px;
+  width: 38px;
+  animation: float-dot-three 5.8s ease-in-out infinite 0.5s;
 }
 
 .intro-panel {
   position: relative;
-  margin-top: -28px;
-  padding: 28px 24px 38px;
+  width: min(100% - 32px, 398px);
+  margin: -44px auto 0;
+  padding: 28px 24px 40px;
   border-radius: 0;
-  background: #122636;
+  background: rgba(33, 56, 71, 0.82);
+  box-shadow: 0 -16px 44px rgba(0, 0, 0, 0.16);
+  text-align: center;
+  animation: intro-panel-up 0.72s ease both;
 }
 
 .intro-panel h1,
@@ -118,8 +159,32 @@ button {
   color: #a9b6bf;
 }
 
+.intro-panel h1 {
+  display: inline-block;
+  position: relative;
+  font-size: 24px;
+}
+
+.intro-panel h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -11px;
+  width: 74px;
+  height: 3px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: var(--gold);
+}
+
+.intro-panel p {
+  margin-top: 28px;
+  line-height: 1.45;
+}
+
 .slider-dots {
   display: flex;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 20px;
 }
@@ -140,15 +205,114 @@ button {
 
 .circle-next {
   position: absolute;
-  right: 24px;
-  bottom: 34px;
+  left: 50%;
+  bottom: -29px;
   width: 58px;
   height: 58px;
+  transform: translateX(-50%);
   border: 0;
   border-radius: 999px;
   color: #ffffff;
   background: var(--gold);
   font-size: 22px;
+  box-shadow: 0 16px 26px rgba(167, 124, 8, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.circle-next:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 20px 34px rgba(167, 124, 8, 0.38);
+}
+
+@keyframes intro-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes intro-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes intro-pulse {
+  0%,
+  100% {
+    opacity: 0.36;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.78;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes product-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes product-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes float-dot-one {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(18px, -18px);
+  }
+}
+
+@keyframes float-dot-two {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-16px, 14px) scale(1.18);
+  }
+}
+
+@keyframes float-dot-three {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(12px, -22px);
+  }
+}
+
+@keyframes intro-panel-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .auth-page {
