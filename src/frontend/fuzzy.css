@@ -1768,6 +1768,38 @@ button {
   margin-bottom: 14px;
 }
 
+.admin-screen [hidden] {
+  display: none !important;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  padding-bottom: 3px;
+  scrollbar-width: none;
+}
+
+.admin-tabs button {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid #dfe7ec;
+  border-radius: 999px;
+  color: var(--ink);
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.admin-tabs button.active {
+  border-color: var(--gold);
+  color: #ffffff;
+  background: var(--gold);
+  box-shadow: 0 8px 18px rgba(167, 124, 8, 0.18);
+}
+
 .admin-hero {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -1852,6 +1884,36 @@ button {
 
 .admin-metrics strong {
   font-size: 22px;
+}
+
+.admin-shortcuts {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-shortcuts button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 58px;
+  padding: 0 14px;
+  border: 1px solid #dfe7ec;
+  border-radius: 8px;
+  color: var(--ink);
+  background: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(23, 41, 56, 0.045);
+}
+
+.admin-shortcuts b {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: var(--gold);
 }
 
 .admin-section {
@@ -2614,6 +2676,20 @@ button {
   border-color: #2a4657;
   background: #10232e;
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.theme-dark .admin-tabs button,
+.theme-dark .admin-shortcuts button {
+  border-color: #2d4a5c;
+  color: #ffffff;
+  background: #142b38;
+}
+
+.theme-dark .admin-tabs button.active,
+.theme-dark .admin-shortcuts b {
+  border-color: var(--gold);
+  color: #ffffff;
+  background: var(--gold);
 }
 
 .theme-dark .admin-order-card,

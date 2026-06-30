@@ -99,6 +99,10 @@ const pageMap: Record<string, Page> = {
   'page-listing': 'pages',
   pages: 'pages',
   admin: 'admin',
+  'admin-orders': 'admin-orders',
+  'admin-products': 'admin-products',
+  'admin-categories': 'admin-categories',
+  'admin-users': 'admin-users',
   'empty-cart': 'cart',
   'empty-notification': 'notifications',
   'empty-order-history': 'orders',
@@ -452,7 +456,15 @@ function FuzzyApp() {
       case 'pages':
         return <PageListingPage go={go} />
       case 'admin':
-        return <AdminPage go={go} />
+        return <AdminPage go={go} section="dashboard" />
+      case 'admin-orders':
+        return <AdminPage go={go} section="orders" />
+      case 'admin-products':
+        return <AdminPage go={go} section="products" />
+      case 'admin-categories':
+        return <AdminPage go={go} section="categories" />
+      case 'admin-users':
+        return <AdminPage go={go} section="users" />
       default:
         return <IndexPage activeSlide={activeSlide} setActiveSlide={setActiveSlide} go={go} />
     }
@@ -488,7 +500,11 @@ function FuzzyApp() {
 
             <nav className="side-menu-pages">
               {drawerPages.map(({ label, page, icon, fallback }) => (
-                <button className={route.page === page ? 'active' : ''} key={page} onClick={() => go(page)}>
+                <button
+                  className={route.page === page || (page === 'admin' && route.page.startsWith('admin')) ? 'active' : ''}
+                  key={page}
+                  onClick={() => go(page)}
+                >
                   <span>
                     {icon ? <img src={`/fuzzy/assets/images/svg/${icon}`} alt="" /> : fallback ?? label.slice(0, 1)}
                   </span>

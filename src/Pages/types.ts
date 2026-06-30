@@ -29,6 +29,10 @@ export type Page =
   | 'notifications'
   | 'pages'
   | 'admin'
+  | 'admin-orders'
+  | 'admin-products'
+  | 'admin-categories'
+  | 'admin-users'
 
 export type GoToPage = (page: Page, id?: number) => void
 

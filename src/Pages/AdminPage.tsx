@@ -12,6 +12,8 @@ type AdminOrder = {
   createdAt?: string
 }
 
+type AdminSection = 'dashboard' | 'orders' | 'products' | 'categories' | 'users'
+
 const orderStatuses = [
   ['pending', 'Chờ xác nhận'],
   ['preparing', 'Đang chuẩn bị'],
@@ -24,6 +26,14 @@ const userStatuses = [
   ['active', 'Đang hoạt động'],
   ['inactive', 'Không hoạt động'],
 ] as const
+
+const adminSections: Array<{ key: AdminSection; label: string; page: Parameters<GoToPage>[0] }> = [
+  { key: 'dashboard', label: 'Tổng quan', page: 'admin' },
+  { key: 'orders', label: 'Đơn hàng', page: 'admin-orders' },
+  { key: 'products', label: 'Sản phẩm', page: 'admin-products' },
+  { key: 'categories', label: 'Danh mục', page: 'admin-categories' },
+  { key: 'users', label: 'Tài khoản', page: 'admin-users' },
+]
 
 const getUserStatus = (user: SessionUser) => user.status ?? 'inactive'
 
@@ -61,7 +71,7 @@ const blankProduct = (): Product => ({
   description: 'Mô tả sản phẩm mới.',
 })
 
-export function AdminPage({ go }: { go: GoToPage }) {
+export function AdminPage({ go, section = 'dashboard' }: { go: GoToPage; section?: AdminSection }) {
   const [products, setProducts] = useState<Product[]>(fallbackProducts)
   const [users, setUsers] = useState<SessionUser[]>([])
   const [orders, setOrders] = useState<AdminOrder[]>([])
@@ -163,12 +173,22 @@ export function AdminPage({ go }: { go: GoToPage }) {
     await loadAdminData()
   }
 
+  const currentAdminTitle = adminSections.find((item) => item.key === section)?.label ?? 'Admin'
+
   return (
     <main className="screen admin-screen">
-      <BackHeader title="Admin" go={go} />
+      <BackHeader title={section === 'dashboard' ? 'Admin' : currentAdminTitle} go={go} />
       {message && <p className="admin-message">{message}</p>}
 
-      <section className="admin-hero">
+      <nav className="admin-tabs" aria-label="Admin pages">
+        {adminSections.map((item) => (
+          <button className={section === item.key ? 'active' : ''} key={item.key} onClick={() => go(item.page)}>
+            {item.label}
+          </button>
+        ))}
+      </nav>
+
+      <section className="admin-hero" hidden={section !== 'dashboard'}>
         <span>
           <small>Bảng điều khiển</small>
           <h2>Quản lý cửa hàng Fuzzy</h2>
@@ -179,7 +199,7 @@ export function AdminPage({ go }: { go: GoToPage }) {
         </div>
       </section>
 
-      <section className="admin-metrics" aria-label="Tổng quan quản trị">
+      <section className="admin-metrics" aria-label="Tổng quan quản trị" hidden={section !== 'dashboard'}>
         <article>
           <small>Đơn hàng</small>
           <strong>{orders.length}</strong>
@@ -198,7 +218,16 @@ export function AdminPage({ go }: { go: GoToPage }) {
         </article>
       </section>
 
-      <section className="admin-section admin-orders">
+      <section className="admin-shortcuts" hidden={section !== 'dashboard'}>
+        {adminSections.slice(1).map((item) => (
+          <button key={item.key} onClick={() => go(item.page)}>
+            <span>{item.label}</span>
+            <b>-&gt;</b>
+          </button>
+        ))}
+      </section>
+
+      <section className="admin-section admin-orders" hidden={section !== 'orders'}>
         <div className="admin-section-head">
           <span>
             <small>Vận hành</small>
@@ -230,7 +259,7 @@ export function AdminPage({ go }: { go: GoToPage }) {
         </div>
       </section>
 
-      <section className="admin-section">
+      <section className="admin-section" hidden={section !== 'products'}>
         <div className="admin-section-head">
           <span>
             <small>Kho hàng</small>
@@ -266,7 +295,7 @@ export function AdminPage({ go }: { go: GoToPage }) {
         </div>
       </section>
 
-      <section className="admin-section">
+      <section className="admin-section" hidden={section !== 'categories'}>
         <div className="admin-section-head">
           <span>
             <small>Phân loại</small>
@@ -295,7 +324,7 @@ export function AdminPage({ go }: { go: GoToPage }) {
         </div>
       </section>
 
-      <section className="admin-section">
+      <section className="admin-section" hidden={section !== 'users'}>
         <div className="admin-section-head">
           <span>
             <small>Khách hàng</small>
