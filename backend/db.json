@@ -1,0 +1,708 @@
+{
+  "users": [
+    {
+      "id": "user-1",
+      "name": "Agasya",
+      "email": "agasya@example.com",
+      "password": "Fuzzy@123",
+      "phone": "+1 234 567 8900",
+      "birthDate": "1998-06-18",
+      "avatar": "/fuzzy/assets/images/icons/profile.png",
+      "addresses": [
+        {
+          "id": "home",
+          "label": "Home",
+          "line": "4517 Washington Ave. Manchester",
+          "phone": "+1 234 567 8900",
+          "isDefault": true
+        }
+      ],
+      "status": "active",
+      "lastLoginAt": "2026-06-30T01:21:46.526Z"
+    },
+    {
+      "id": "0062da72-d4e9-4ca6-a316-51fcf8c2adb3",
+      "name": "loongaoden113",
+      "email": "loongaoden113@gmail.com",
+      "password": "Longaoden113",
+      "phone": "",
+      "birthDate": "",
+      "avatar": "/fuzzy/assets/images/icons/profile.png",
+      "addresses": [],
+      "status": "active",
+      "lastLoginAt": "2026-06-30T01:29:29.742Z"
+    }
+  ],
+  "sessions": [
+    {
+      "token": "jwt.c4c0fda1-ee82-403e-8e2b-fc1454cea571.fuzzy",
+      "userId": "user-1",
+      "expiresAt": 1782793624946
+    },
+    {
+      "token": "jwt.47706bff-dd2c-465f-bb1b-9e1719a76c2c.fuzzy",
+      "userId": "0062da72-d4e9-4ca6-a316-51fcf8c2adb3",
+      "expiresAt": 1782794381825
+    },
+    {
+      "token": "jwt.c58d62ae-3bab-403c-8ce9-4eff94b22dbc.fuzzy",
+      "userId": "0062da72-d4e9-4ca6-a316-51fcf8c2adb3",
+      "expiresAt": 1782794408639
+    },
+    {
+      "token": "jwt.e1f44517-eb79-4d78-98b1-e5aab4071f8f.fuzzy",
+      "userId": "0062da72-d4e9-4ca6-a316-51fcf8c2adb3",
+      "expiresAt": 1782794613536
+    },
+    {
+      "token": "jwt.a81e9dc6-0fdb-407f-9da4-118d9c2fc49e.fuzzy",
+      "userId": "0062da72-d4e9-4ca6-a316-51fcf8c2adb3",
+      "expiresAt": 1782794655938
+    },
+    {
+      "token": "jwt.089bc0a7-cf36-4e27-a22c-b7d471539ee2.fuzzy",
+      "userId": "0062da72-d4e9-4ca6-a316-51fcf8c2adb3",
+      "expiresAt": 1782794693899
+    },
+    {
+      "token": "jwt.cd8f694b-64b8-4deb-b31e-6c68e3120c45.fuzzy",
+      "userId": "user-1",
+      "expiresAt": 1782868632775
+    },
+    {
+      "token": "jwt.b464a87b-a7fa-4fe6-bbfc-7ea042ea0ecb.fuzzy",
+      "userId": "user-1",
+      "expiresAt": 1782868906526
+    },
+    {
+      "token": "jwt.f74911cb-17f1-4597-84f6-58ecbaaaa618.fuzzy",
+      "userId": "0062da72-d4e9-4ca6-a316-51fcf8c2adb3",
+      "expiresAt": 1782869369742
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Modern Sofa",
+      "category": "sofa",
+      "color": "Yellow",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "price": 150,
+      "oldPrice": 200,
+      "stock": 1,
+      "hidden": false
+    },
+    {
+      "id": 2,
+      "name": "Club Chair",
+      "category": "chair",
+      "color": "Cream",
+      "sizes": [
+        "S",
+        "M"
+      ],
+      "price": 110,
+      "oldPrice": 140,
+      "stock": 4,
+      "hidden": false
+    },
+    {
+      "id": 7,
+      "name": "Side Table",
+      "category": "table",
+      "color": "Brown",
+      "sizes": [
+        "One size"
+      ],
+      "price": 50,
+      "oldPrice": 80,
+      "stock": 15,
+      "hidden": false,
+      "rating": 4.5,
+      "reviews": 61,
+      "image": "/fuzzy/assets/images/product/7.png",
+      "images": [
+        "/fuzzy/assets/images/product/7.png",
+        "/fuzzy/assets/images/product/8.png",
+        "/fuzzy/assets/images/product/9.png"
+      ],
+      "description": "A warm wooden side table for books, lighting, and small decor."
+    },
+    {
+      "id": 11,
+      "name": "Lounge Chair",
+      "category": "chair",
+      "color": "Blue",
+      "sizes": [
+        "M",
+        "L"
+      ],
+      "price": 130,
+      "oldPrice": 160,
+      "stock": 3,
+      "hidden": false
+    },
+    {
+      "id": 13,
+      "name": "Hanging Light",
+      "category": "lamp",
+      "color": "Black",
+      "sizes": [
+        "One size"
+      ],
+      "price": 30,
+      "oldPrice": 60,
+      "stock": 22,
+      "hidden": false
+    },
+    {
+      "id": 16,
+      "name": "Cabinet Shelf",
+      "category": "cabinet",
+      "color": "Walnut",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "price": 180,
+      "oldPrice": 230,
+      "stock": 7,
+      "hidden": true,
+      "rating": 4.7,
+      "reviews": 73,
+      "image": "/fuzzy/assets/images/product/16.png",
+      "images": [
+        "/fuzzy/assets/images/product/16.png",
+        "/fuzzy/assets/images/product/21.png",
+        "/fuzzy/assets/images/product/22.png"
+      ],
+      "description": "Useful storage with display space for books, vases, and daily essentials."
+    },
+    {
+      "id": 1782783084531,
+      "hidden": false,
+      "name": "Sản phẩm mới",
+      "category": "sofa",
+      "color": "Brown",
+      "sizes": [
+        "M"
+      ],
+      "price": 100,
+      "oldPrice": 120,
+      "stock": 1,
+      "rating": 4.5,
+      "reviews": 0,
+      "image": "/fuzzy/assets/images/product/1.png",
+      "images": [
+        "/fuzzy/assets/images/product/1.png"
+      ],
+      "description": "Mô tả sản phẩm mới."
+    }
+  ],
+  "categories": [
+    "sofa",
+    "chair",
+    "table",
+    "cabinet",
+    "lamp",
+    "decor"
+  ],
+  "coupons": [
+    {
+      "id": "fuzzy20",
+      "code": "FUZZY20",
+      "value": 20
+    },
+    {
+      "id": "ship",
+      "code": "FREESHIP",
+      "value": 12
+    },
+    {
+      "id": "new",
+      "code": "NEW50",
+      "value": 50
+    }
+  ],
+  "orders": [
+    {
+      "id": "FU-43759",
+      "status": "preparing",
+      "eta": "30 Jun 2026",
+      "items": [
+        {
+          "product": {
+            "id": 11,
+            "name": "Lounge Chair",
+            "category": "chair",
+            "color": "Blue",
+            "sizes": [
+              "M",
+              "L"
+            ],
+            "price": 130,
+            "oldPrice": 160,
+            "stock": 9,
+            "rating": 4.9,
+            "reviews": 214,
+            "image": "/fuzzy/assets/images/product/11.png",
+            "images": [
+              "/fuzzy/assets/images/product/11.png",
+              "/fuzzy/assets/images/product/12.png",
+              "/fuzzy/assets/images/product/14.png"
+            ],
+            "description": "Deep lounge seating with a soft cushion and polished metal frame."
+          },
+          "quantity": 2
+        },
+        {
+          "product": {
+            "id": 13,
+            "name": "Hanging Light",
+            "category": "lamp",
+            "color": "Black",
+            "sizes": [
+              "One size"
+            ],
+            "price": 30,
+            "oldPrice": 60,
+            "stock": 25,
+            "rating": 4.3,
+            "reviews": 42,
+            "image": "/fuzzy/assets/images/product/13.png",
+            "images": [
+              "/fuzzy/assets/images/product/13.png",
+              "/fuzzy/assets/images/product/18.png",
+              "/fuzzy/assets/images/product/19.png"
+            ],
+            "description": "Minimal pendant light for dining spaces, reading corners, and entryways."
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 7,
+            "name": "Side Table",
+            "category": "table",
+            "color": "Brown",
+            "sizes": [
+              "One size"
+            ],
+            "price": 50,
+            "oldPrice": 80,
+            "stock": 18,
+            "rating": 4.5,
+            "reviews": 61,
+            "image": "/fuzzy/assets/images/product/7.png",
+            "images": [
+              "/fuzzy/assets/images/product/7.png",
+              "/fuzzy/assets/images/product/8.png",
+              "/fuzzy/assets/images/product/9.png"
+            ],
+            "description": "A warm wooden side table for books, lighting, and small decor."
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 1,
+            "name": "Modern Sofa",
+            "category": "sofa",
+            "color": "Yellow",
+            "sizes": [
+              "S",
+              "M",
+              "L"
+            ],
+            "price": 150,
+            "oldPrice": 200,
+            "stock": 12,
+            "rating": 4.8,
+            "reviews": 128,
+            "image": "/fuzzy/assets/images/product/1.png",
+            "images": [
+              "/fuzzy/assets/images/product/1.png",
+              "/fuzzy/assets/images/product/10.png",
+              "/fuzzy/assets/images/product/12.png"
+            ],
+            "description": "A soft modern sofa with a rounded profile for relaxed living rooms."
+          },
+          "quantity": 8
+        },
+        {
+          "product": {
+            "id": 2,
+            "name": "Club Chair",
+            "category": "chair",
+            "color": "Cream",
+            "sizes": [
+              "S",
+              "M"
+            ],
+            "price": 110,
+            "oldPrice": 140,
+            "stock": 8,
+            "rating": 4.6,
+            "reviews": 96,
+            "image": "/fuzzy/assets/images/product/2.png",
+            "images": [
+              "/fuzzy/assets/images/product/2.png",
+              "/fuzzy/assets/images/product/3.png",
+              "/fuzzy/assets/images/product/4.png"
+            ],
+            "description": "Compact lounge chair with supportive padding and a quiet silhouette.",
+            "hidden": false
+          },
+          "quantity": 4
+        }
+      ],
+      "total": 1972,
+      "paymentMethod": "COD",
+      "createdAt": "2026-06-30T01:24:03.759Z"
+    },
+    {
+      "id": "FU-99543",
+      "status": "preparing",
+      "eta": "30 Jun 2026",
+      "items": [
+        {
+          "product": {
+            "id": 11,
+            "name": "Lounge Chair",
+            "category": "chair",
+            "color": "Blue",
+            "sizes": [
+              "M",
+              "L"
+            ],
+            "price": 130,
+            "oldPrice": 160,
+            "stock": 9,
+            "rating": 4.9,
+            "reviews": 214,
+            "image": "/fuzzy/assets/images/product/11.png",
+            "images": [
+              "/fuzzy/assets/images/product/11.png",
+              "/fuzzy/assets/images/product/12.png",
+              "/fuzzy/assets/images/product/14.png"
+            ],
+            "description": "Deep lounge seating with a soft cushion and polished metal frame."
+          },
+          "quantity": 2
+        },
+        {
+          "product": {
+            "id": 13,
+            "name": "Hanging Light",
+            "category": "lamp",
+            "color": "Black",
+            "sizes": [
+              "One size"
+            ],
+            "price": 30,
+            "oldPrice": 60,
+            "stock": 25,
+            "rating": 4.3,
+            "reviews": 42,
+            "image": "/fuzzy/assets/images/product/13.png",
+            "images": [
+              "/fuzzy/assets/images/product/13.png",
+              "/fuzzy/assets/images/product/18.png",
+              "/fuzzy/assets/images/product/19.png"
+            ],
+            "description": "Minimal pendant light for dining spaces, reading corners, and entryways."
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 7,
+            "name": "Side Table",
+            "category": "table",
+            "color": "Brown",
+            "sizes": [
+              "One size"
+            ],
+            "price": 50,
+            "oldPrice": 80,
+            "stock": 18,
+            "rating": 4.5,
+            "reviews": 61,
+            "image": "/fuzzy/assets/images/product/7.png",
+            "images": [
+              "/fuzzy/assets/images/product/7.png",
+              "/fuzzy/assets/images/product/8.png",
+              "/fuzzy/assets/images/product/9.png"
+            ],
+            "description": "A warm wooden side table for books, lighting, and small decor."
+          },
+          "quantity": 1
+        }
+      ],
+      "total": 332,
+      "paymentMethod": "COD",
+      "createdAt": "2026-06-30T01:34:59.543Z"
+    },
+    {
+      "id": "FU-73567",
+      "status": "preparing",
+      "eta": "30 Jun 2026",
+      "items": [
+        {
+          "product": {
+            "id": 1,
+            "name": "Modern Sofa",
+            "category": "sofa",
+            "color": "Yellow",
+            "sizes": [
+              "S",
+              "M",
+              "L"
+            ],
+            "price": 150,
+            "oldPrice": 200,
+            "stock": 12,
+            "rating": 4.8,
+            "reviews": 128,
+            "image": "/fuzzy/assets/images/product/1.png",
+            "images": [
+              "/fuzzy/assets/images/product/1.png",
+              "/fuzzy/assets/images/product/10.png",
+              "/fuzzy/assets/images/product/12.png"
+            ],
+            "description": "A soft modern sofa with a rounded profile for relaxed living rooms."
+          },
+          "quantity": 1
+        }
+      ],
+      "total": 142,
+      "paymentMethod": "COD",
+      "createdAt": "2026-06-30T01:36:13.567Z"
+    },
+    {
+      "id": "FU-09378",
+      "status": "preparing",
+      "eta": "30 Jun 2026",
+      "items": [
+        {
+          "product": {
+            "id": 11,
+            "name": "Lounge Chair",
+            "category": "chair",
+            "color": "Blue",
+            "sizes": [
+              "M",
+              "L"
+            ],
+            "price": 130,
+            "oldPrice": 160,
+            "stock": 9,
+            "rating": 4.9,
+            "reviews": 214,
+            "image": "/fuzzy/assets/images/product/11.png",
+            "images": [
+              "/fuzzy/assets/images/product/11.png",
+              "/fuzzy/assets/images/product/12.png",
+              "/fuzzy/assets/images/product/14.png"
+            ],
+            "description": "Deep lounge seating with a soft cushion and polished metal frame."
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 13,
+            "name": "Hanging Light",
+            "category": "lamp",
+            "color": "Black",
+            "sizes": [
+              "One size"
+            ],
+            "price": 30,
+            "oldPrice": 60,
+            "stock": 25,
+            "rating": 4.3,
+            "reviews": 42,
+            "image": "/fuzzy/assets/images/product/13.png",
+            "images": [
+              "/fuzzy/assets/images/product/13.png",
+              "/fuzzy/assets/images/product/18.png",
+              "/fuzzy/assets/images/product/19.png"
+            ],
+            "description": "Minimal pendant light for dining spaces, reading corners, and entryways."
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 7,
+            "name": "Side Table",
+            "category": "table",
+            "color": "Brown",
+            "sizes": [
+              "One size"
+            ],
+            "price": 50,
+            "oldPrice": 80,
+            "stock": 18,
+            "rating": 4.5,
+            "reviews": 61,
+            "image": "/fuzzy/assets/images/product/7.png",
+            "images": [
+              "/fuzzy/assets/images/product/7.png",
+              "/fuzzy/assets/images/product/8.png",
+              "/fuzzy/assets/images/product/9.png"
+            ],
+            "description": "A warm wooden side table for books, lighting, and small decor."
+          },
+          "quantity": 1
+        }
+      ],
+      "total": 202,
+      "paymentMethod": "COD",
+      "createdAt": "2026-06-30T01:38:29.378Z"
+    },
+    {
+      "id": "FU-27525",
+      "status": "preparing",
+      "eta": "30 Jun 2026",
+      "items": [
+        {
+          "product": {
+            "id": 1,
+            "name": "Modern Sofa",
+            "category": "sofa",
+            "color": "Yellow",
+            "sizes": [
+              "S",
+              "M",
+              "L"
+            ],
+            "price": 150,
+            "oldPrice": 200,
+            "stock": 12,
+            "rating": 4.8,
+            "reviews": 128,
+            "image": "/fuzzy/assets/images/product/1.png",
+            "images": [
+              "/fuzzy/assets/images/product/1.png",
+              "/fuzzy/assets/images/product/10.png",
+              "/fuzzy/assets/images/product/12.png"
+            ],
+            "description": "A soft modern sofa with a rounded profile for relaxed living rooms."
+          },
+          "quantity": 2
+        }
+      ],
+      "total": 292,
+      "paymentMethod": "COD",
+      "createdAt": "2026-06-30T01:38:47.525Z"
+    },
+    {
+      "id": "FU-80423",
+      "status": "pending",
+      "eta": "30 Jun 2026",
+      "items": [
+        {
+          "product": {
+            "id": 11,
+            "name": "Lounge Chair",
+            "category": "chair",
+            "color": "Blue",
+            "sizes": [
+              "M",
+              "L"
+            ],
+            "price": 130,
+            "oldPrice": 160,
+            "stock": 4,
+            "rating": 4.9,
+            "reviews": 214,
+            "image": "/fuzzy/assets/images/product/11.png",
+            "images": [
+              "/fuzzy/assets/images/product/11.png",
+              "/fuzzy/assets/images/product/12.png",
+              "/fuzzy/assets/images/product/14.png"
+            ],
+            "description": "Deep lounge seating with a soft cushion and polished metal frame.",
+            "hidden": false
+          },
+          "quantity": 1
+        }
+      ],
+      "total": 122,
+      "paymentMethod": "COD",
+      "createdAt": "2026-06-30T02:03:00.423Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY-224961",
+      "method": "Momo",
+      "amount": 210,
+      "orderId": null,
+      "status": "waiting_redirect",
+      "redirectUrl": "/payment-result?paymentId=PAY-224961",
+      "createdAt": "2026-06-29T04:27:04.961Z"
+    },
+    {
+      "id": "PAY-643763",
+      "method": "COD",
+      "amount": 1972,
+      "orderId": "FU-43759",
+      "status": "pending_cod",
+      "redirectUrl": null,
+      "createdAt": "2026-06-30T01:24:03.763Z"
+    },
+    {
+      "id": "PAY-299546",
+      "method": "COD",
+      "amount": 332,
+      "orderId": "FU-99543",
+      "status": "pending_cod",
+      "redirectUrl": null,
+      "createdAt": "2026-06-30T01:34:59.546Z"
+    },
+    {
+      "id": "PAY-373571",
+      "method": "COD",
+      "amount": 142,
+      "orderId": "FU-73567",
+      "status": "pending_cod",
+      "redirectUrl": null,
+      "createdAt": "2026-06-30T01:36:13.571Z"
+    },
+    {
+      "id": "PAY-509382",
+      "method": "COD",
+      "amount": 202,
+      "orderId": "FU-09378",
+      "status": "pending_cod",
+      "redirectUrl": null,
+      "createdAt": "2026-06-30T01:38:29.382Z"
+    },
+    {
+      "id": "PAY-527529",
+      "method": "COD",
+      "amount": 292,
+      "orderId": "FU-27525",
+      "status": "pending_cod",
+      "redirectUrl": null,
+      "createdAt": "2026-06-30T01:38:47.529Z"
+    },
+    {
+      "id": "PAY-980428",
+      "method": "COD",
+      "amount": 122,
+      "orderId": "FU-80423",
+      "status": "pending_cod",
+      "redirectUrl": null,
+      "createdAt": "2026-06-30T02:03:00.428Z"
+    }
+  ]
+}

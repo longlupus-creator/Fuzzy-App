@@ -1,0 +1,13 @@
+.fuzzy-shell {
+  width: 100%;
+  min-height: 100svh;
+  background: #122636;
+}
+
+.fuzzy-app {
+  display: block;
+  width: 100%;
+  height: 100svh;
+  border: 0;
+  background: #122636;
+}
