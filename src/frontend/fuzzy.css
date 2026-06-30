@@ -1129,12 +1129,41 @@ button {
   text-align: center;
 }
 
+.tracking-screen .back-header {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+}
+
+.tracking-screen .back-header h1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tracking-success-mark {
+  display: grid;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+  margin: 20px auto 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #f7fafb;
+}
+
 .success-gif,
 .empty-state img {
   width: 150px;
   height: 150px;
   margin: 20px auto;
   object-fit: contain;
+}
+
+.tracking-success-mark .success-gif {
+  width: 170px;
+  height: 170px;
+  margin: 0;
+  object-fit: cover;
 }
 
 .timeline {
@@ -1170,7 +1199,7 @@ button {
 
 .tracking-status {
   justify-self: center;
-  margin-top: 12px;
+  margin: 10px 0 4px;
   padding: 8px 14px;
   border: 1px solid #f0d99c;
   border-radius: 999px;
@@ -2324,6 +2353,49 @@ button {
 
 .theme-dark .profile-menu-copy strong {
   color: #ffffff;
+}
+
+.theme-dark .tracking-screen {
+  background: #0d1c26;
+}
+
+.theme-dark .tracking-success-mark {
+  border: 1px solid #233c4b;
+  background: #142733;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+}
+
+.theme-dark .tracking-status {
+  border-color: #f0d99c;
+  color: #ffffff;
+  background: var(--gold);
+}
+
+.theme-dark .tracking-status.cancelled {
+  border-color: #f1c7c7;
+  color: #ffffff;
+  background: #bd4747;
+}
+
+.theme-dark .timeline span {
+  border-color: #233c4b;
+  color: #ffffff;
+  background: #142733;
+}
+
+.theme-dark .timeline .done {
+  border-color: #4f8f67;
+}
+
+.theme-dark .timeline .current {
+  border-color: var(--gold);
+  color: #ffffff;
+  background: #1d3340;
+}
+
+.theme-dark .timeline .cancelled {
+  border-color: #bd4747;
+  background: #2a1d22;
 }
 
 .theme-dark .pay-popup,

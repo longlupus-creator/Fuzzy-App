@@ -66,7 +66,9 @@ export function OrderTrackingPage({
   return (
     <main className="screen tracking-screen">
       <BackHeader title="Order Tracking" go={go} />
-      <img className="success-gif" src={asset('gif/success.gif')} alt="" />
+      <span className="tracking-success-mark">
+        <img className="success-gif" src={asset('gif/success.gif')} alt="" />
+      </span>
       <h1>{isCancelled ? 'Đơn hàng đã hủy' : 'Đơn hàng đã đặt'}</h1>
       <strong className={`tracking-status ${isCancelled ? 'cancelled' : ''}`}>{statusLabel}</strong>
       <p>
