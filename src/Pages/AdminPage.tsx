@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { fuzzyApi } from '../backend/api'
 import { asset, products as fallbackProducts, type Product } from '../backend/data'
 import type { SessionUser } from '../backend/auth'
@@ -13,6 +13,10 @@ type AdminOrder = {
 }
 
 type AdminSection = 'dashboard' | 'orders' | 'products' | 'categories' | 'users'
+
+const ADMIN_AUTH_KEY = 'fuzzy_admin_session'
+const ADMIN_EMAIL = 'admin@fuzzy.local'
+const ADMIN_PASSWORD = 'Admin@123'
 
 const orderStatuses = [
   ['pending', 'Chờ xác nhận'],
@@ -72,6 +76,10 @@ const blankProduct = (): Product => ({
 })
 
 export function AdminPage({ go, section = 'dashboard' }: { go: GoToPage; section?: AdminSection }) {
+  const [isAdminAuthed, setIsAdminAuthed] = useState(() => localStorage.getItem(ADMIN_AUTH_KEY) === 'true')
+  const [adminEmail, setAdminEmail] = useState(ADMIN_EMAIL)
+  const [adminPassword, setAdminPassword] = useState('')
+  const [adminLoginError, setAdminLoginError] = useState('')
   const [products, setProducts] = useState<Product[]>(fallbackProducts)
   const [users, setUsers] = useState<SessionUser[]>([])
   const [orders, setOrders] = useState<AdminOrder[]>([])
@@ -90,6 +98,27 @@ export function AdminPage({ go, section = 'dashboard' }: { go: GoToPage; section
     getUserStatus(left).localeCompare(getUserStatus(right)) || left.name.localeCompare(right.name),
   )
 
+  const loginAdmin = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    if (adminEmail.trim().toLowerCase() !== ADMIN_EMAIL || adminPassword !== ADMIN_PASSWORD) {
+      setAdminLoginError('Email hoặc mật khẩu admin chưa đúng.')
+      return
+    }
+
+    localStorage.setItem(ADMIN_AUTH_KEY, 'true')
+    setIsAdminAuthed(true)
+    setAdminLoginError('')
+    setAdminPassword('')
+  }
+
+  const logoutAdmin = () => {
+    localStorage.removeItem(ADMIN_AUTH_KEY)
+    setIsAdminAuthed(false)
+    setEditingProduct(null)
+    setEditingUser(null)
+  }
+
   const loadAdminData = async () => {
     const [nextProducts, nextUsers, nextOrders, nextCategories] = await Promise.all([
       fuzzyApi.getAdminProducts(),
@@ -105,12 +134,14 @@ export function AdminPage({ go, section = 'dashboard' }: { go: GoToPage; section
   }
 
   useEffect(() => {
+    if (!isAdminAuthed) return undefined
+
     const timer = window.setTimeout(() => {
       void loadAdminData()
     }, 0)
 
     return () => window.clearTimeout(timer)
-  }, [])
+  }, [isAdminAuthed])
 
   const saveProduct = async () => {
     if (!editingProduct) return
@@ -175,6 +206,38 @@ export function AdminPage({ go, section = 'dashboard' }: { go: GoToPage; section
 
   const currentAdminTitle = adminSections.find((item) => item.key === section)?.label ?? 'Admin'
 
+  if (!isAdminAuthed) {
+    return (
+      <main className="screen admin-screen admin-login-screen">
+        <BackHeader title="Đăng nhập Admin" go={go} />
+        <section className="admin-login-card">
+          <span className="admin-login-mark">A</span>
+          <h1>Quản trị Fuzzy</h1>
+          <p>Đăng nhập admin để chỉnh sửa sản phẩm, đơn hàng, danh mục và tài khoản.</p>
+          <form className="admin-login-form" onSubmit={loginAdmin}>
+            <input
+              value={adminEmail}
+              onChange={(event) => setAdminEmail(event.target.value)}
+              placeholder="Email admin"
+              type="email"
+            />
+            <input
+              value={adminPassword}
+              onChange={(event) => setAdminPassword(event.target.value)}
+              placeholder="Mật khẩu admin"
+              type="password"
+            />
+            {adminLoginError && <small>{adminLoginError}</small>}
+            <button className="primary-btn" type="submit">
+              Đăng nhập Admin
+            </button>
+          </form>
+          <p className="admin-login-hint">Demo: admin@fuzzy.local / Admin@123</p>
+        </section>
+      </main>
+    )
+  }
+
   return (
     <main className="screen admin-screen">
       <BackHeader title={section === 'dashboard' ? 'Admin' : currentAdminTitle} go={go} />
@@ -187,6 +250,9 @@ export function AdminPage({ go, section = 'dashboard' }: { go: GoToPage; section
           </button>
         ))}
       </nav>
+      <button className="admin-lock-btn" onClick={logoutAdmin}>
+        Thoát Admin
+      </button>
 
       <section className="admin-hero" hidden={section !== 'dashboard'}>
         <span>
